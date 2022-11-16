@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Restaurant info</h1>
+
+  <div class="resto-reviews-container">
+      <% @restaurant.reviews.each do |review| %>
+      <h2><%= @restaurant.name %> <%= '⭐' * @restaurant.rating %></h2>
+      <p><%= review.content %></p>
+      <p>Address: <%= @restaurant.address %></p>
+      <% end %>
+  </div>
+
+  <p><%= link_to 'Back', restaurants_path, class: "btn btn-primary" %></p>
+  <p><%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-primary" %></p>
+  <p><%= link_to 'Delete', restaurant_path(@restaurant), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are sure you?"} %></p>
+</div>

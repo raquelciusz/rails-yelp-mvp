@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="p-30">
+    <h1>Restaurants</h1>
+    <ul class="bg-gray">
+      <% @restaurants.each do |restaurant| %>
+        <li class="text-decoration-none"><%= link_to restaurant.name, restaurant_path(restaurant) %>
+        <%= '⭐' * restaurant.rating %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "Add a restaurant", new_restaurant_path, class: "btn btn-secondary mb-10" %>
+  </div>
+</div>
